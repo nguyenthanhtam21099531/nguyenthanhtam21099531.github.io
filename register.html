@@ -80,16 +80,19 @@
                 };
             };
             $("#confirm-password").blur(kiemtraCFPassword);
-          $("#btnDangKy").click(function() {
+            $("#btnDangKy").click(function() {
           
           var username = $("#txtUserN").val();
           var password = $("#txtPassword").val();
           var email = $("#txtEmail").val();
+          var user ={
+            username : username,
+            password : password,
+            email : email,
 
-          localStorage.setItem("username", username);
-          localStorage.setItem("password", password);
-          localStorage.setItem("email", email);
-
+          };
+          var json = JSON.stringify(user);
+          localStorage.setItem(username, json);
           alert("Đăng ký thành công");
           window.location.href = "logon.html"
         });
