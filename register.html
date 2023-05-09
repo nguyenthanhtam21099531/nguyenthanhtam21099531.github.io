@@ -81,22 +81,18 @@
             };
             $("#confirm-password").blur(kiemtraCFPassword);
           $("#btnDangKy").click(function() {
-  // Lấy thông tin người dùng từ các trường nhập liệu
-            var username = $("#txtUserN").val();
-            var password = $("#txtPassword").val();
-            var email = $("#txtEmail").val();
 
-  // Lưu trữ thông tin người dùng vào LocalStorage
+          var username = $("#txtUserN").val();
+          var password = $("#txtPassword").val();
+          var email = $("#txtEmail").val();
+
           localStorage.setItem("username", username);
           localStorage.setItem("password", password);
           localStorage.setItem("email", email);
 
-  // Chuyển hướng người dùng đến trang chủ
-          // Chuyển hướng đến trang index.html trong một cửa sổ mới
-          window.open("https://nguyenthanhtam21099531.github.io/", "_self");
-
-          
-});
+          alert("Đăng ký thành công");
+          window.location.href = "index.html"
+        });
 
     });
   </script>
