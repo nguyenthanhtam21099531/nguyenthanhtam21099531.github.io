@@ -81,7 +81,7 @@
             };
             $("#confirm-password").blur(kiemtraCFPassword);
           $("#btnDangKy").click(function() {
-
+          
           var username = $("#txtUserN").val();
           var password = $("#txtPassword").val();
           var email = $("#txtEmail").val();
@@ -91,9 +91,8 @@
           localStorage.setItem("email", email);
 
           alert("Đăng ký thành công");
-          window.location.href = "index.html"
+          window.location.href = "logon.html"
         });
-
     });
   </script>
   <style>
@@ -149,7 +148,7 @@
             <input type="password" class="form-control" id="confirm-password">
             <span id="tbCF">*</span>
           </div>
-          <button type="submit" class="btn btn-primary btn-block" id="btnDangKy">Đăng ký</button>
+          <input type="button" value="Đăng ký" id="btnDangKy" class="btn btn-primary btn-block">
         </form>
         <div class="mt-3 text-center">
           <span>Bạn đã có tài khoản? <a href="#">Đăng nhập ngay</a></span>
