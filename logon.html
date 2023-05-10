@@ -10,25 +10,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script>
-    function saveLoginInfo(username, password) {
-      localStorage.setItem("username");
-      localStorage.setItem("password");
-}
-    function checkLoginInfo(username, password) {
-          var storedUsername = localStorage.getItem("username");
-          var storedPassword = localStorage.getItem("password");
-  
-          if (username === storedUsername && password === storedPassword) {
-          alert("Đăng nhập thành công");
-          } else {
-          alert("Tên đăng nhập hoặc mật khẩu không đúng");
-          }
-}
-    $("#btnDangNhap").click(function() {
-      var username = $("#tendangnhap").val();
-      var password = $("#matkhau").val();
-  
-          checkLoginInfo(username, password);
+    $(document).ready(function() {
+      var i = 2;
+        $("#btnDangNhap").click(function() {
+              var username = $("#txtUserN").val();
+              var password = $("#txtPassword").val();
+              var email = $("#txtEmail").val();
+              var user = localStorage.getItem(username);
+              var data = JSON.parse(user);
+              if (user == null){
+                alert("Vui lòng nhập Tên đăng nhập và Mật khẩu")
+              }
+              else if(username == data.username && password == data.password){
+                alert("Đăng nhập thành công")
+                window.location.href = "index.html"
+              }
+              else{
+                alert("Đăng nhập thất bại")
+              }
+        });
 });
   </script>
 </head>
@@ -60,11 +60,11 @@
         <form action="#" method="post">
           <div class="form-group">
             <label for="">Tên đăng nhập</label>
-            <input type="text" class="form-control" id="tendangnhap">
+            <input type="text" class="form-control" id="txtUserN">
           </div>
           <div class="form-group">
             <label for="">Mật khẩu</label>
-            <input type="password" class="form-control" id="matkhau">
+            <input type="password" class="form-control" id="txtPassword">
           </div>
           <div class="form-group">
             <div class="custom-control custom-checkbox">
